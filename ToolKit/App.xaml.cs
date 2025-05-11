@@ -1,4 +1,6 @@
 ﻿using Hardcodet.Wpf.TaskbarNotification;
+using NHotkey;
+using NHotkey.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,10 +35,24 @@ namespace ToolKit
                 MainWindow MainWindow = new MainWindow();
                 MainWindow.Show();
             });
+
+            //горячии клавиши
+            HotkeyManager.Current.AddOrReplace("ShowWindow",
+            Key.D1,
+            ModifierKeys.Control,
+            OnHotkeyPressed);
+        }
+
+        private void OnHotkeyPressed(object sender, HotkeyEventArgs e)
+        {
+            // Обработка нажатия
+            NoteWindow noteWindow = new NoteWindow();
+            noteWindow.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
+            HotkeyManager.Current.Remove("ShowWindow");
             notifyIcon.Dispose(); // Важно освободить ресурсы
             base.OnExit(e);
         }
