@@ -3,10 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:ToolKit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Settings" Height="450" Width="800">
     <Grid>
-        
+        <TabControl
+        Style="{StaticResource MaterialDesignNavigationRailTabControl}"
+        materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
+        SnapsToDevicePixels="True"
+        TabStripPlacement="Left">
+
+            <TabItem Height="70" Width="80">
+                <TabItem.Header>
+                    <StackPanel Width="auto" Height="auto">
+                        <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center"  Kind="Note"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Note" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Height="70" Width="80">
+                <TabItem.Header>
+                    <StackPanel Width="auto" Height="auto">
+                        <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Note"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Note" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
